@@ -1,0 +1,8 @@
+{
+  "name": "smpLib",
+  "version": "1.0.0",
+  "dependencies": {
+    "pi-gpio": "0.0.8"
+  },
+  "devDependencies": {}
+}

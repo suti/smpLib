@@ -10,7 +10,7 @@ setInterval(()=>{
 	});
 	flag=!flag
 	console.log('change! ::',flag?1:0)
-},1000)
+},200)
 
 // setInterval(()=>{
 // 	gpio.write(8, flag?1:0, e=>{

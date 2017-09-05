@@ -8,16 +8,10 @@ let interval=null,routers=[]
 
 
 routers.push(router.get('/start',(req,res)=>{
-	gpio.open(16, "output", function(err) {		// Open pin 16 for output
-		// if(err) throw err
-		console.log(err)
-
-	});
-	gpio.open(18, "output",err=>{
-		// if(err) throw err
-		console.log(err)
-		gpio.write(18,0)
+	gpio.open(16, "output", (err) =>{
+		err&&console.log(err)
 	})
+
 	interval=setInterval(()=>{
 		gpio.write(16, flag?1:0, ()=> {
 			flag=!flag
@@ -27,6 +21,14 @@ routers.push(router.get('/start',(req,res)=>{
 	res.send('start')
 	res.end()
 }))
+
+gpio.open(18, "input",err=>{
+	err&&console.log(err)
+	// gpio.write(18,0)
+	gpio.read(18,(err,value)=>{
+		console.log(value)
+	})
+})
 
 routers.push(router.get('/stop',(req,res)=>{
 	gpio.close(16)

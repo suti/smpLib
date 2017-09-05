@@ -37,3 +37,5 @@ routers.push(router.get('/stop',(req,res)=>{
 }))
 
 app.use('/',routers)
+
+app.listen(233)

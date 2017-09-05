@@ -15,7 +15,7 @@ routers.push(router.get('/start',(req,res)=>{
 	interval=setInterval(()=>{
 		gpio.write(16, flag?1:0, ()=> {
 			flag=!flag
-			console.log(`${Date.now()},::${flag?1:0}`)
+			// console.log(`${Date.now()},::${flag?1:0}`)
 		});
 
 	},500)
@@ -26,7 +26,7 @@ routers.push(router.get('/start',(req,res)=>{
 let listenerd=listener()
 
 listenerd(v=>{
-	console.log(v)
+	console.log(`${Date.now()},::${v}`)
 })
 
 function listener() {
@@ -42,7 +42,6 @@ function listener() {
 			listenerd(func)
 		},1)
 	}
-
 	return listenerd
 }
 

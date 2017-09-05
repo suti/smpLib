@@ -1,27 +1,34 @@
 const gpio = require('pi-gpio')
+const express = require('express')
+const router = express.Router()
+const app = express()
 let flag=false
 
+let interval=null,routers=[]
 gpio.open(16, "output", function(err) {		// Open pin 16 for output
-	console.log(err)
+	if(err) throw err
+
 });
 gpio.open(18, "output",err=>{
-  if(err){
-    console.log(err)
-  }
+	if(err) throw err
   gpio.write(18,0)
 })
 
-setInterval(()=>{
-	gpio.write(16, flag?1:0, function() {			// Set pin 16 high (1)
-		// gpio.close(8);						// Close pin 16
-	});
-	flag=!flag
-	console.log('change! ::',flag?1:0)
-},500)
+routers.push(router.get('/start',(req,res)=>{
+	interval=setInterval(()=>{
+		gpio.write(16, flag?1:0, ()=> {
+			flag=!flag
+			console.log(`${Date.now()},::${flag?1:0}`)
+		});
+	},500)
+	res.send('start')
+	res.end()
+}))
 
-// setInterval(()=>{
-// 	gpio.write(8, flag?1:0, e=>{
-// 		console.log('pi-gpio-waring!!',e)
-// 	});
-// 	flag=!flag
-// },300)
+routers.push(router.get('/stop',(req,res)=>{
+	clearInterval(interval)
+	res.send('stop')
+	res.end()
+}))
+
+app.use('/',routers)

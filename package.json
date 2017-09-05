@@ -2,6 +2,7 @@
   "name": "smpLib",
   "version": "1.0.0",
   "dependencies": {
+    "express": "^4.15.4",
     "pi-gpio": "0.0.8"
   },
   "devDependencies": {}

@@ -17,18 +17,21 @@ routers.push(router.get('/start',(req,res)=>{
 			flag=!flag
 			console.log(`${Date.now()},::${flag?1:0}`)
 		});
+		gpio.read(18,(err,value)=>{
+			console.log(value)
+		})
 	},500)
 	res.send('start')
 	res.end()
 }))
 
-gpio.open(18, "input",err=>{
-	err&&console.log(err)
-	// gpio.write(18,0)
-	gpio.read(18,(err,value)=>{
-		console.log(value)
-	})
-})
+// gpio.open(18, "input",err=>{
+// 	err&&console.log(err)
+// 	// gpio.write(18,0)
+// 	gpio.read(18,(err,value)=>{
+// 		console.log(value)
+// 	})
+// })
 
 routers.push(router.get('/stop',(req,res)=>{
 	gpio.close(16)

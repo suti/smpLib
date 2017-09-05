@@ -40,7 +40,7 @@ function listener() {
 				}
 			})
 			listenerd(func)
-		},0)
+		},0.1)
 	}
 	return listenerd
 }

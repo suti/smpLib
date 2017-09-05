@@ -32,6 +32,7 @@ routers.push(router.get('/stop',(req,res)=>{
 	gpio.close(16)
 	gpio.close(18)
 	clearInterval(interval)
+	interval=null
 	res.send('stop')
 	res.end()
 }))

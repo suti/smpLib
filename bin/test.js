@@ -6,11 +6,13 @@ let flag=false
 
 let interval=null,routers=[]
 gpio.open(16, "output", function(err) {		// Open pin 16 for output
-	if(err) throw err
+	// if(err) throw err
+	console.log(err)
 
 });
 gpio.open(18, "output",err=>{
-	if(err) throw err
+	// if(err) throw err
+	console.log(err)
   gpio.write(18,0)
 })
 

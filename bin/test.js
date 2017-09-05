@@ -36,7 +36,7 @@ routers.push(router.get('/stop',(req,res)=>{
 	res.end()
 }))
 routers.push(router.get('/status',(req,res)=>{
-	res.send(`status::${interval===null?'running':'stop'}`)
+	res.send(`status::${interval!==null?'running':'stop'}`)
 	res.end()
 }))
 

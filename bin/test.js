@@ -17,13 +17,35 @@ routers.push(router.get('/start',(req,res)=>{
 			flag=!flag
 			console.log(`${Date.now()},::${flag?1:0}`)
 		});
-		gpio.read(18,(err,value)=>{
-			console.log(value)
-		})
+
 	},500)
 	res.send('start')
 	res.end()
 }))
+
+let listenerd=listener()
+
+listenerd(v=>{
+	console.log(v)
+})
+
+function listener() {
+	let value=null
+	let listenerd=function (func) {
+		setTimeout(()=>{
+			gpio.read(18,(err,val)=>{
+				if(val!==value){
+					value=val
+					func&&func(val)
+				}
+			})
+			listenerd(func)
+		},1)
+	}
+
+	return listenerd
+}
+
 
 // gpio.open(18, "input",err=>{
 // 	err&&console.log(err)

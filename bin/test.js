@@ -35,6 +35,10 @@ routers.push(router.get('/stop',(req,res)=>{
 	res.send('stop')
 	res.end()
 }))
+routers.push(router.get('/status',(req,res)=>{
+	res.send(`status::${interval===null?'running':'stop'}`)
+	res.end()
+}))
 
 app.use('/',routers)
 

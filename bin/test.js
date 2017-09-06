@@ -21,17 +21,21 @@ routers.push(router.get('/start',(req,res)=>{
 	},500)
 	res.send('start')
 	res.end()
-}))
+}));
 
-let listener18=listener(18)
++async function init() {
+	let listener18=await listener(18)
 // let listener19=listener(19)
 
-listener18(v=>{
-	console.log(`${Date.now()},18::${v}`)
-})
+	listener18(v=>{
+		console.log(`${Date.now()},18::${v}`)
+	})
 // listener19(v=>{
 // 	console.log(`${Date.now()},19::${v}`)
 // })
+}()
+
+
 
 function listener(num) {
 	let value=null
@@ -47,7 +51,14 @@ function listener(num) {
 			listenerd(func)
 		},1)
 	}
-	return listenerd
+
+	return new Promise(resolve=>{
+		gpio.open(num,'input',err=>{
+			err&&console.log(err)
+			resolve(listenerd)
+		})
+	})
+
 }
 
 

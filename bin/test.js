@@ -35,12 +35,12 @@ routers.push(router.get('/start',(req,res)=>{
 	// listener19(v=>{
 	// 	console.log(`${Date.now()},19::${v}`)
 	// })
-	gpio.getDirection(19,v=>{
-		console.log(v)
-	})
+
 }()
 
-
+gpio.getDirection(19,(err,val)=>{
+	console.log(val)
+})
 
 function listener(num) {
 	let value=null

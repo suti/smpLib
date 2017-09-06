@@ -23,17 +23,22 @@ routers.push(router.get('/start',(req,res)=>{
 	res.end()
 }))
 
-let listenerd=listener()
+let listener18=listener(18)
+let listener19=listener(19)
 
-listenerd(v=>{
-	console.log(`${Date.now()},::${v}`)
+listener18(v=>{
+	console.log(`${Date.now()},18::${v}`)
+})
+listener19(v=>{
+	console.log(`${Date.now()},19::${v}`)
 })
 
-function listener() {
+function listener(num) {
 	let value=null
 	let listenerd=function (func) {
 		setTimeout(()=>{
-			gpio.read(18,(err,val)=>{
+			gpio.read(num,(err,val)=>{
+				err&&console.log(err)
 				if(val!==value){
 					value=val
 					func&&func(val)

@@ -27,13 +27,16 @@ routers.push(router.get('/start',(req,res)=>{
 
 +async function init() {
 	let listener18=await listener(18)
-	let listener19=await listener(19)
+	// let listener19=await listener(19)
 
 	listener18(v=>{
 		console.log(`${Date.now()},18::${v}`)
 	})
-	listener19(v=>{
-		console.log(`${Date.now()},19::${v}`)
+	// listener19(v=>{
+	// 	console.log(`${Date.now()},19::${v}`)
+	// })
+	gpio.getDirection(19,v=>{
+		console.log(v)
 	})
 }()
 

@@ -10,29 +10,31 @@ let interval=null,routers=[]
 routers.push(router.get('/start',(req,res)=>{
 	gpio.open(16, "output", (err) =>{
 		err&&console.log(err)
+
+		interval=setInterval(()=>{
+			gpio.write(16, flag?1:0, ()=> {
+				flag=!flag
+			});
+
+		},500)
+
 	})
 
-	interval=setInterval(()=>{
-		gpio.write(16, flag?1:0, ()=> {
-			flag=!flag
-			// console.log(`${Date.now()},::${flag?1:0}`)
-		});
 
-	},500)
 	res.send('start')
 	res.end()
 }));
 
 +async function init() {
 	let listener18=await listener(18)
-// let listener19=listener(19)
+	let listener19=await listener(19)
 
 	listener18(v=>{
 		console.log(`${Date.now()},18::${v}`)
 	})
-// listener19(v=>{
-// 	console.log(`${Date.now()},19::${v}`)
-// })
+	listener19(v=>{
+		console.log(`${Date.now()},19::${v}`)
+	})
 }()
 
 

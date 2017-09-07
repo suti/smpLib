@@ -7,7 +7,7 @@ const app = express()
 
 let flag=false
 
-let interval=null,routers=[]
+let interval=null,routers=[],counts=0
 
 
 routers.push(router.get('/start',(req,res)=> {
@@ -17,6 +17,7 @@ routers.push(router.get('/start',(req,res)=> {
 		interval = setInterval(() => {
 			gpio.write(16, flag ? 1 : 0, () => {
 				flag = !flag
+				counts+=1
 			})
 
 		}, 2)
@@ -50,11 +51,12 @@ routers.push(router.get('/start',(req,res)=> {
 // gpio.getDirection(19,(err,val)=>{
 // 	console.log(val)
 // })
-let listener18
+let listener18,count=0
 listener(18).then(v=>{
 	listener18=v
 	listener18(v=>{
 		console.log(`${Date.now()},18::${v}`)
+		count+=1
 	})
 })
 
@@ -98,7 +100,7 @@ routers.push(router.get('/stop',(req,res)=>{
 	gpio.close(18)
 	clearInterval(interval)
 	interval=null
-	res.send('stop')
+	res.send('stop',count,counts)
 	res.end()
 }))
 routers.push(router.get('/status',(req,res)=>{

@@ -98,7 +98,7 @@ function listener(num) {
 routers.push(router.get('/stop',(req,res)=>{
 	clearInterval(interval)
 	interval=null
-	res.send('stop',count,counts)
+	res.send(`stop::${count},${counts}`)
 	res.end()
 }))
 routers.push(router.get('/status',(req,res)=>{

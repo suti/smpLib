@@ -43,6 +43,7 @@ for str in inputValue:
 for byte in inputArr:
     byteLength=8
     for i in range(0,byteLength):
+        time.sleep(0.002)
         if byte>>i&1 :
             GPIO.output(11,1)
         else:

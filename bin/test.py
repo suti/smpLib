@@ -42,6 +42,11 @@ for str in inputValue:
     inputArr.append(ord(str))
 
 print (inputArr)
+
+GPIO.output(11,1)
+time.sleep(0.001)
+GPIO.output(11,0)
+
 for byte in inputArr:
     byteLength=8
     for i in range(0,byteLength):

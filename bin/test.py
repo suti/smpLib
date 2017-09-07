@@ -20,8 +20,7 @@ def setTimeOutTo():
     setTimeOutTo()
 
 def watcher (v):
-    print time.time()
-    print ':: '+v
+    print (str(time.time())+':: '+v)
 
 
 

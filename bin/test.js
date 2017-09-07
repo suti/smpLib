@@ -10,28 +10,29 @@ let flag=false
 let interval=null,routers=[]
 
 
-routers.push(router.get('/start',(req,res)=>{
-	gpio.open(16, "output", (err) =>{
-		err&&console.log(err)
+routers.push(router.get('/start',(req,res)=> {
+	gpio.open(16, "output", (err) => {
+		err && console.log(err)
 
-		interval=setInterval(()=>{
-			gpio.write(16, flag?1:0, ()=> {
-				flag=!flag
+		interval = setInterval(() => {
+			gpio.write(16, flag ? 1 : 0, () => {
+				flag = !flag
 			})
 
-		},2)
-	gpio.open(15, "output", (err) =>{
-		err&&console.log(err)
+		}, 2)
+		gpio.open(15, "output", (err) => {
+			err && console.log(err)
 
-			gpio.write(15,0)
+			gpio.write(15, 0)
 
 
+		})
+
+
+		res.send('start')
+		res.end()
 	})
-
-
-	res.send('start')
-	res.end()
-}));
+}))
 
 // +async function init() {
 // 	let listener18=await listener(18)

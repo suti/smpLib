@@ -1,7 +1,10 @@
+"use strict"
+
 const gpio = require('pi-gpio')
 const express = require('express')
 const router = express.Router()
 const app = express()
+
 let flag=false
 
 let interval=null,routers=[]
@@ -16,7 +19,7 @@ routers.push(router.get('/start',(req,res)=>{
 				flag=!flag
 			});
 
-		},500)
+		},2)
 
 	})
 

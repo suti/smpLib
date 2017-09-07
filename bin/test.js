@@ -28,22 +28,31 @@ routers.push(router.get('/start',(req,res)=>{
 	res.end()
 }));
 
-+async function init() {
-	let listener18=await listener(18)
-	// let listener19=await listener(19)
-
+// +async function init() {
+// 	let listener18=await listener(18)
+// 	// let listener19=await listener(19)
+//
+// 	listener18(v=>{
+// 		console.log(`${Date.now()},18::${v}`)
+// 	})
+// 	// listener19(v=>{
+// 	// 	console.log(`${Date.now()},19::${v}`)
+// 	// })
+//
+// }()
+//
+// gpio.getDirection(19,(err,val)=>{
+// 	console.log(val)
+// })
+let listener18
+listener(18).then(v=>{
+	listener18=v
 	listener18(v=>{
 		console.log(`${Date.now()},18::${v}`)
 	})
-	// listener19(v=>{
-	// 	console.log(`${Date.now()},19::${v}`)
-	// })
-
-}()
-
-gpio.getDirection(19,(err,val)=>{
-	console.log(val)
 })
+
+
 
 function listener(num) {
 	let value=null

@@ -17,9 +17,14 @@ routers.push(router.get('/start',(req,res)=>{
 		interval=setInterval(()=>{
 			gpio.write(16, flag?1:0, ()=> {
 				flag=!flag
-			});
+			})
 
 		},2)
+	gpio.open(15, "output", (err) =>{
+		err&&console.log(err)
+
+			gpio.write(15,0)
+
 
 	})
 

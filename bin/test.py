@@ -19,6 +19,9 @@ def watcher(v):
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
+GPIO.setup(18,GPIO.IN)
+GPIO.setup(16,GPIO.OUT)
+
 Gpio_flag=1
 
 GPIO.add_event_detect(18, GPIO.RISING,callback=watcher)

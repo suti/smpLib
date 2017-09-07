@@ -40,11 +40,13 @@ inputValue = input("请输入字符")
 inputArr = []
 for str in inputValue:
     inputArr.append(ord(str))
+
+print (inputArr)
 for byte in inputArr:
     byteLength=8
     for i in range(0,byteLength):
         time.sleep(0.002)
-        if byte>>i&1 :
+        if byte[i]>>i&1 :
             GPIO.output(11,1)
         else:
             GPIO.output(11,0)

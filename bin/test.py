@@ -16,7 +16,8 @@ except RuntimeError:
 #     setTimeOutTo()
 
 def watcher(v):
-    print(v)
+    print (time.time())
+    print (GPIO.input(v))
 
 
 GPIO.setmode(GPIO.BOARD)

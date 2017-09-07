@@ -39,7 +39,7 @@ GPIO.setup(11,GPIO.OUT)
 inputValue = input("请输入字符")
 inputArr = []
 for str in inputValue:
-    inputArr.push(ord(str))
+    inputArr.append(ord(str))
 for byte in inputArr:
     byteLength=8
     for i in range(0,byteLength):

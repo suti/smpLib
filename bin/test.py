@@ -6,14 +6,14 @@ try:
 except RuntimeError:
     print("引入错误")
 
-Gpio_flag = 1
+# Gpio_flag = 1
 
-def setTimeOutTo():
-    global Gpio_flag
-    GPIO.output(11,Gpio_flag)
-    Gpio_flag=1 if False else 0
-    time.sleep(0.1)
-    setTimeOutTo()
+# def setTimeOutTo():
+#     global Gpio_flag
+#     GPIO.output(11,Gpio_flag)
+#     Gpio_flag=1 if False else 0
+#     time.sleep(0.5)
+#     setTimeOutTo()
 
 def watcher(v):
     print(v)
@@ -27,4 +27,10 @@ GPIO.setup(11,GPIO.OUT)
 
 GPIO.add_event_detect(12, GPIO.RISING,callback=watcher)
 
-setTimeOutTo()
+# setTimeOutTo()
+
+while True:
+    GPIO.output(11,0)
+    time.sleep(0.5)
+    GPIO.output(11,1)
+    time.sleep(0.5)

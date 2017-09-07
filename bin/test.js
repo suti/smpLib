@@ -20,7 +20,7 @@ routers.push(router.get('/start',(req,res)=> {
 				counts+=1
 			})
 
-		}, 2)
+		}, 4)
 		gpio.open(15, "output", (err) => {
 			err && console.log(err)
 

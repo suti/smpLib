@@ -12,7 +12,7 @@ let flag=false
 
 // define(data,'arr',dataCtrl)
 
-data.arr=[]
+// data.arr=[]
 
 setTimeout(()=>{
 	console.log('ok')
@@ -22,8 +22,8 @@ pi.pullUpDnControl(24,pi.PUD_UP)
 pi.wiringPiISR(24,pi.INT_EDGE_RISING,e=>{
 	if(time){
 		let delay=Date.now()-time
-		if(delay>120){
-			let n=((delay/100)|0)+((delay-((delay/100)|0)*100)>20?1:0)-1,t=[]
+		if(delay>100){
+			let n=((delay/100)|0)+((delay-((delay/100)|0)*100)>100?1:0)-1,t=[]
 			for(let i=0;i<n;i++)
 				t.push(0)
 			data.arr.push(...t,1)

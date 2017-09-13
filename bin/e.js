@@ -21,7 +21,7 @@ function strs(v) {
 		arr.push(e.charCodeAt(0))
 	})
 	for(let i=0;i<arr.length;i++){
-		for(let j=0;j<8;j++){
+		for(let j=8;j>=0;j--){
 			let value=(arr[i]>>j)&1
 			console.log(`[${i}][${j}]::${value}`)
 			if(value){

@@ -32,10 +32,10 @@ function strs(v) {
 			console.log(`[${i}][${j}]::${value}`)
 			if(value){
 				pi.digitalWrite(23,1)
-				pi.delay(60)
+				pi.delay(15)
 			}else {
 				pi.digitalWrite(23,1)
-				pi.delay(20)
+				pi.delay(5)
 			}
 			pi.digitalWrite(23,0)
 			pi.delay(20)

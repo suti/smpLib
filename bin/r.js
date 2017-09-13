@@ -16,7 +16,6 @@ setTimeout(()=>{
 
 pi.pullUpDnControl(24,pi.PUD_UP)
 pi.wiringPiISR(24,pi.INT_EDGE_RASING,e=>{
-	console.log(`pin changed to low ${e}`)
 	if(time){
 		let delay=Date.now()-time
 		if(delay>150){

@@ -20,6 +20,7 @@ function strs(v) {
 	v.split('').forEach(e=>{
 		arr.push(e.charCodeAt(0))
 	})
+	arr.push(129)
 	for(let i=0;i<arr.length;i++){
 		let items=arr[i].toString(2).split('')
 		for(let x=items.length;x<8;x++){

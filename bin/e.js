@@ -27,7 +27,7 @@ function strs(v) {
 			if(value){
 				pi.digitalWrite(23,value)
 				pi.delay(50)
-				pi.digitalWrite(23,!value)
+				pi.digitalWrite(23,+!value)
 				pi.delay(50)
 			}else {
 				pi.delay(100)

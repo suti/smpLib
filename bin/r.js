@@ -47,7 +47,7 @@ function dataCtrl(v) {
 	for(let i=0;i<8;i++){
 		arrs.push(data.arr.shift())
 	}
-	code=parseInt(arrs.json(''),8)
+	code=parseInt(arrs.join(''),8)
 	console.log(code,String.fromCharCode(code))
 }
 

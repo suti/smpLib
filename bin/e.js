@@ -16,7 +16,7 @@ rl.question('请输入字符串', v => {
 });
 
 function strs(v) {
-	let arr=[129]
+	let arr=[131]
 	v.split('').forEach(e=>{
 		arr.push(e.charCodeAt(0))
 	})

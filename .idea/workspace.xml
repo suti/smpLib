@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5bf2c7b8-8de4-4824-9279-120d024be6a0" name="Default" comment="" />
+    <list default="true" id="5bf2c7b8-8de4-4824-9279-120d024be6a0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/e.js" afterPath="$PROJECT_DIR$/bin/e.js" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -37,7 +39,7 @@
       <file leaf-file-name="e.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/e.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
+            <state relative-caret-position="215">
               <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
               <folding />
             </state>
@@ -247,7 +249,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24332000" />
+    <option name="totallyTimeSpent" value="24955000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -514,7 +516,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/e.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
+        <state relative-caret-position="215">
           <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
           <folding />
         </state>

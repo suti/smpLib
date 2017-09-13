@@ -12,9 +12,9 @@ repl.start({
 })
 
 function inputCtrl(v) {
-	console.log(v)
+	console.log(arguments)
 
-	repl.end()
+	// repl.end()
 // 	while(true){
 // 		pi.digitalWrite(23,value)
 // 		value=+!value

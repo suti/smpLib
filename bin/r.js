@@ -4,7 +4,7 @@ pi.setup('gpio')
 
 pi.pinMode(24,pi.INPUT)
 
-let time=null,data
+let time=null,data={}
 
 data.arr=[]
 

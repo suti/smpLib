@@ -22,6 +22,7 @@ function strs(v) {
 	})
 	for(let i=0;i<arr.length;i++){
 		let items=arr[i].toString(2).split('')
+		console.log(items)
 		for(let j=0;j<8;j++){
 			let value=items[i]|0
 				// (arr[i]>>j)&1

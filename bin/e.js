@@ -31,13 +31,14 @@ function strs(v) {
 				// (arr[i]>>j)&1
 			console.log(`[${i}][${j}]::${value}`)
 			if(value){
-				pi.digitalWrite(23,value)
-				pi.delay(50)
-				pi.digitalWrite(23,+!value)
-				pi.delay(50)
+				pi.digitalWrite(23,1)
+				pi.delay(80)
 			}else {
-				pi.delay(100)
+				pi.digitalWrite(23,1)
+				pi.delay(20)
 			}
+			pi.digitalWrite(23,0)
+			pi.delay(20)
 		}
 	}
 }

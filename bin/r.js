@@ -1,8 +1,8 @@
 const pi=require('wiringpi-node')
 
-pi.setup('gpio')
+pi.setup('phy')
 
-pi.pinMode(24,pi.INPUT)
+pi.pinMode(18,pi.INPUT)
 
 let time=null,data={arr:[]}
 let flag=false,strData=[]
@@ -11,10 +11,10 @@ setTimeout(()=>{
 	console.log('ok')
 },0)
 
-pi.pullUpDnControl(24,pi.PUD_DOWN)
+pi.pullUpDnControl(18,pi.PUD_DOWN)
 
-pi.wiringPiISR(24,pi.INT_EDGE_BOTH,()=>{
-	let value = pi.digitalRead(24)
+pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
+	let value = pi.digitalRead(18)
 	if(!value){
 		time=Date.now()
 	}else {

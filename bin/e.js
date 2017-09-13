@@ -1,9 +1,9 @@
 const pi=require('wiringpi-node')
 const readline = require('readline')
 
-pi.setup('gpio')
+pi.setup('phy')
 
-pi.pinMode(23,pi.OUTPUT)
+pi.pinMode(16,pi.OUTPUT)
 
 const rl = readline.createInterface({
 	input: process.stdin,
@@ -36,13 +36,13 @@ function strs(v) {
 				// (arr[i]>>j)&1
 			console.log(`[${i}][${j}]::${value}`)
 			if(value){
-				pi.digitalWrite(23,1)
+				pi.digitalWrite(16,1)
 				pi.delay(40)
 			}else {
-				pi.digitalWrite(23,1)
+				pi.digitalWrite(16,1)
 				pi.delay(20)
 			}
-			pi.digitalWrite(23,0)
+			pi.digitalWrite(16,0)
 			pi.delay(20)
 		}
 	}

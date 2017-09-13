@@ -6,13 +6,6 @@ pi.pinMode(24,pi.INPUT)
 
 let time=null,data={arr:[]}
 let flag=false
-// let {arr}=data
-// arr=[]
-
-
-// define(data,'arr',dataCtrl)
-
-// data.arr=[]
 
 setTimeout(()=>{
 	console.log('ok')
@@ -42,7 +35,7 @@ pi.wiringPiISR(24,pi.INT_EDGE_RISING,e=>{
 function dataCtrl(v) {
 	if(v==undefined) return
 	console.log(v)
-	if(v.length<=8) return
+	if(v.length<8) return
 	let arrs=[],code
 	for(let i=0;i<8;i++){
 		arrs.push(data.arr.shift())
@@ -52,6 +45,7 @@ function dataCtrl(v) {
 		return
 	}
 	code=parseInt(arrs.join(''),2)
+	if(flag&&code===129) process.exit()
 	console.log(code,String.fromCharCode(code))
 }
 

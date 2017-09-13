@@ -37,7 +37,7 @@ pi.wiringPiISR(24,pi.INT_EDGE_RASING,e=>{
 function dataCtrl(v) {
 	if(v.length!==8) return
 	let arr=v,code
-	data.arr=[]
+	v=[]
 	code=parseInt(arr.json(''),8)
 	console.log(code,String.fromCharCode(code))
 }

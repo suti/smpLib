@@ -16,13 +16,15 @@ rl.question('请输入字符串', v => {
 });
 
 function strs(v) {
-	let arr=[131]
+	let arr=[129]
 	v.split('').forEach(e=>{
 		arr.push(e.charCodeAt(0))
 	})
 	for(let i=0;i<arr.length;i++){
-		for(let j=8;j>=0;j--){
-			let value=(arr[i]>>j)&1
+		let items=arr[i].toString(2).split('')
+		for(let j=0;j<8;j++){
+			let value=items[i]|0
+				// (arr[i]>>j)&1
 			console.log(`[${i}][${j}]::${value}`)
 			if(value){
 				pi.digitalWrite(23,value)

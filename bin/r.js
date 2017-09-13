@@ -47,6 +47,7 @@ function dataCtrl(v) {
 		console.log('\r\n')
 		console.log('>>>')
 		strData=[]
+		flag=false
 		// process.exit()
 	}
 	// console.log(code,String.fromCharCode(code))

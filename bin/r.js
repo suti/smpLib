@@ -4,10 +4,10 @@ pi.setup('gpio')
 
 pi.pinMode(24,pi.INPUT)
 
-let time=null,data={}
+let time=null,data={arr:[]}
 
-let {arr}=data
-arr=[]
+// let {arr}=data
+// arr=[]
 
 
 define(data,'arr',dataCtrl)
@@ -24,14 +24,14 @@ pi.wiringPiISR(24,pi.INT_EDGE_RISING,e=>{
 			let n=((delay/100)|0)+((delay-((delay/100)|0)*100)>100?1:0),t=[]
 			for(let i=0;i<n;i++)
 				t.push(0)
-			arr.push(...t,1)
+			data.arr.push(...t,1)
 		}else {
-			arr.push(1)
+			data.arr.push(1)
 		}
 		time=Date.now()
 	}else {
 		time=Date.now()
-		arr.push(1)
+		data.arr.push(1)
 	}
 })
 
@@ -40,7 +40,7 @@ function dataCtrl(v) {
 	if(v.length<=8) return
 	let arrs=[],code
 	for(let i=0;i<8;i++){
-		arrs.push(arr.shift())
+		arrs.push(data.arr.shift())
 	}
 	code=parseInt(arrs.json(''),8)
 	console.log(code,String.fromCharCode(code))

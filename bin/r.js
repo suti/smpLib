@@ -5,7 +5,7 @@ pi.setup('gpio')
 pi.pinMode(24,pi.INPUT)
 
 let time=null,data={arr:[]}
-
+let flag=false
 // let {arr}=data
 // arr=[]
 
@@ -46,6 +46,10 @@ function dataCtrl(v) {
 	let arrs=[],code
 	for(let i=0;i<8;i++){
 		arrs.push(data.arr.shift())
+	}
+	if(!flag){
+		flag=true
+		return
 	}
 	code=parseInt(arrs.join(''),2)
 	console.log(code,String.fromCharCode(code))

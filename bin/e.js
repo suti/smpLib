@@ -10,10 +10,15 @@ const rl = readline.createInterface({
 	output: process.stdout
 });
 
-rl.question('请输入字符串', v => {
-	strs(v)
-	rl.close();
-});
+setInput()
+
+function setInput() {
+	rl.question('请输入字符串', v => {
+		strs(v)
+		rl.close();
+	});
+}
+
 
 function strs(v) {
 	let arr=[129]
@@ -41,4 +46,6 @@ function strs(v) {
 			pi.delay(20)
 		}
 	}
+
+	setInput()
 }

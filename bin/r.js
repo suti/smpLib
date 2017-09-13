@@ -36,6 +36,7 @@ pi.wiringPiISR(24,pi.INT_EDGE_RISING,e=>{
 })
 
 function dataCtrl(v) {
+	console.log(v)
 	if(v.length!==8) return
 	let arrs=v,code
 	arr=[]

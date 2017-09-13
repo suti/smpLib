@@ -1,25 +1,41 @@
+console.log('初始化...')
 const pi=require('wiringpi-node')
-const repl = require('repl')
+const readline = require('readline')
 
 pi.setup('gpio')
 
 pi.pinMode(23,pi.OUTPUT)
-let value=1
 
-repl.start({
-	prompt: '请输入字符> ',
-	input: inputCtrl
-})
 
-function inputCtrl(v) {
-	console.log(arguments)
 
-	// repl.end()
+const rl = readline.createInterface({
+	input: process.stdin,
+	output: process.stdout
+});
+
+rl.question('请输入字符串', v => {
+	strs(v)
+	rl.close();
+});
+
+function strs(v) {
+	let arr=[]
+	v.split('').forEach(e=>{
+		arr.push(e.charCodeAt(0))
+	})
+	for(let i=0;i<arr.length;i++){
+		for(let j=0;j<8;j++){
+			let value=arr[i]>>j&1
+			console.log(`[${i}][${j}]::${value}`)
+			pi.digitalWrite(23,value)
+			pi.delay(100)
+		}
+	}
+}
 // 	while(true){
 // 		pi.digitalWrite(23,value)
 // 		value=+!value
 // 		pi.delay(100)
 // //	console.log(Date.now())
 // 	}
-}
 

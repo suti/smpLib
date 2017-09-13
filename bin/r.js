@@ -10,7 +10,7 @@ let time=null,data={arr:[]}
 // arr=[]
 
 
-define(data,'arr',dataCtrl)
+// define(data,'arr',dataCtrl)
 
 data.arr=[]
 
@@ -36,6 +36,7 @@ pi.wiringPiISR(24,pi.INT_EDGE_RISING,e=>{
 		console.log(data)
 		data.arr.push(1)
 	}
+	dataCtrl(data.arr)
 })
 
 function dataCtrl(v) {
@@ -50,20 +51,20 @@ function dataCtrl(v) {
 	console.log(code,String.fromCharCode(code))
 }
 
-function define(obj,key,fc){
-	let val,_this=this
-	Object.defineProperty(obj,key,{
-		enumerable: true,
-		configurable: true,
-		get: ()=>val,
-		set:newVal=> {
-			var value =  val
-			if (newVal === value) {
-				return
-			}
-			val = newVal
-			fc.call(_this)
-		}
-	})
-}
+// function define(obj,key,fc){
+// 	let val,_this=this
+// 	Object.defineProperty(obj,key,{
+// 		enumerable: true,
+// 		configurable: true,
+// 		get: ()=>val,
+// 		set:newVal=> {
+// 			var value =  val
+// 			if (newVal === value) {
+// 				return
+// 			}
+// 			val = newVal
+// 			fc.call(_this)
+// 		}
+// 	})
+// }
 

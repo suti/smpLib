@@ -35,6 +35,7 @@ pi.wiringPiISR(24,pi.INT_EDGE_RISING,e=>{
 })
 
 pi.wiringPiISR(24,pi.INT_EDGE_FALLING,e=>{
+	console.log(Date.now(),time,Date.now()-time)
 	if(Date.now()-time>120){
 		data.arr.push(1)
 	}else {
@@ -47,7 +48,7 @@ pi.wiringPiISR(24,pi.INT_EDGE_FALLING,e=>{
 
 function dataCtrl(v) {
 	if(v==undefined) return
-	console.log(v)
+	// console.log(v)
 	if(v.length<8) return
 	let arrs=[],code
 	for(let i=0;i<8;i++){

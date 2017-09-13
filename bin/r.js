@@ -32,7 +32,7 @@ pi.wiringPiISR(24,pi.INT_EDGE_BOTH,()=>{
 	// }
 	let value = pi.digitalRead(24)
 	// console.log(value)
-	if(value){
+	if(!value){
 		time=Date.now()
 	}else {
 		console.log(Date.now(),time,Date.now()-time)

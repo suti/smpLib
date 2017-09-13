@@ -1,6 +1,6 @@
 const pi=require('wiringpi-node')
 
-pi.setup('phy')
+pi.setup('phys')
 
 pi.pinMode(18,pi.INPUT)
 

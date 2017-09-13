@@ -1,7 +1,7 @@
 const pi=require('wiringpi-node')
 const readline = require('readline')
 
-pi.setup('phy')
+pi.setup('phys')
 
 pi.pinMode(16,pi.OUTPUT)
 

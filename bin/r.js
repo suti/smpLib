@@ -18,6 +18,7 @@ setTimeout(()=>{
 
 pi.pullUpDnControl(24,pi.PUD_UP)
 pi.wiringPiISR(24,pi.INT_EDGE_RISING,e=>{
+	console.log('RISING')
 	if(time){
 		let delay=Date.now()-time
 		if(delay>150){

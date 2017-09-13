@@ -15,7 +15,7 @@ setInput()
 function setInput() {
 	rl.question('请输入字符串', v => {
 		strs(v)
-		rl.close();
+		// rl.close();
 	});
 }
 

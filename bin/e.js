@@ -22,7 +22,7 @@ function strs(v) {
 	})
 	for(let i=0;i<arr.length;i++){
 		for(let j=0;j<8;j++){
-			let value=arr[i]>>j&1
+			let value=(arr[i]>>j)&1
 			console.log(`[${i}][${j}]::${value}`)
 			if(value){
 				pi.digitalWrite(23,value)

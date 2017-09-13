@@ -10,6 +10,10 @@ data.arr=[]
 
 define(data,'arr',dataCtrl)
 
+setTimeout(()=>{
+	console.log('ok')
+},3000)
+
 pi.pullUpDnControl(24,pi.PUD_UP)
 pi.wiringPiISR(24,pi.INT_EDGE_RASING,e=>{
 	console.log(`pin changed to low ${e}`)

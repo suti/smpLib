@@ -31,6 +31,7 @@ pi.wiringPiISR(24,pi.INT_EDGE_RISING,e=>{
 		time=Date.now()
 	}else {
 		time=Date.now()
+		console.log(data)
 		data.arr.push(1)
 	}
 })

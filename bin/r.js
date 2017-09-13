@@ -31,10 +31,9 @@ pi.wiringPiISR(24,pi.INT_EDGE_BOTH,()=>{
 	// 	data.arr.push(1)
 	// }
 	let value = pi.digitalRead(24)
-
+	console.log(value)
 	if(value){
 		time=Date.now()
-		console.log('rising')
 	}else {
 		console.log(Date.now(),time,Date.now()-time)
 		if(Date.now()-time>120){

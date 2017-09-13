@@ -35,7 +35,7 @@ pi.wiringPiISR(24,pi.INT_EDGE_RISING,e=>{
 })
 
 pi.wiringPiISR(24,pi.INT_EDGE_FALLING,e=>{
-	if(Date.now()-time>50){
+	if(Date.now()-time>120){
 		data.arr.push(1)
 	}else {
 		data.arr.push(0)

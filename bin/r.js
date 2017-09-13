@@ -11,9 +11,9 @@ setTimeout(()=>{
 	console.log('ok')
 },0)
 
-pi.pullUpDnControl(24,pi.PUD_UP)
+pi.pullUpDnControl(24,pi.PUD_DOWN)
 
-pi.wiringPiISR(24,pi.INT_EDGE_RISING,e=>{
+pi.wiringPiISR(24,pi.INT_EDGE_BOTH,()=>{
 	// if(time){
 	// 	let delay=Date.now()-time
 	// 	if(delay>100){
@@ -30,19 +30,27 @@ pi.wiringPiISR(24,pi.INT_EDGE_RISING,e=>{
 	// 	console.log(data)
 	// 	data.arr.push(1)
 	// }
-	time=Date.now()
-	console.log('rising')
+	let value = pi.digitalRead(24)
+
+	if(value){
+		time=Date.now()
+		console.log('rising')
+	}else {
+		console.log(Date.now(),time,Date.now()-time)
+		if(Date.now()-time>120){
+			data.arr.push(1)
+		}else {
+			data.arr.push(0)
+		}
+		dataCtrl(data.arr)
+	}
+
+
 })
 
-pi.wiringPiISR(24,pi.INT_EDGE_FALLING,e=>{
-	console.log(Date.now(),time,Date.now()-time)
-	if(Date.now()-time>120){
-		data.arr.push(1)
-	}else {
-		data.arr.push(0)
-	}
-	dataCtrl(data.arr)
-})
+// pi.wiringPiISR(24,pi.INT_EDGE_FALLING,e=>{
+//
+// })
 
 
 

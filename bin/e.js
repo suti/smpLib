@@ -22,9 +22,12 @@ function strs(v) {
 	})
 	for(let i=0;i<arr.length;i++){
 		let items=arr[i].toString(2).split('')
-		console.log(items)
+		for(let x=items.length;x<8;x++){
+			items.unshift('0')
+		}
 		for(let j=0;j<8;j++){
 			let value=items[i]|0
+			console.log(value)
 				// (arr[i]>>j)&1
 			console.log(`[${i}][${j}]::${value}`)
 			if(value){

@@ -5,7 +5,7 @@ pi.setup('gpio')
 pi.pinMode(24,pi.INPUT)
 
 let time=null,data={arr:[]}
-let flag=false
+let flag=false,strData=[]
 
 setTimeout(()=>{
 	console.log('ok')
@@ -14,24 +14,7 @@ setTimeout(()=>{
 pi.pullUpDnControl(24,pi.PUD_DOWN)
 
 pi.wiringPiISR(24,pi.INT_EDGE_BOTH,()=>{
-	// if(time){
-	// 	let delay=Date.now()-time
-	// 	if(delay>100){
-	// 		let n=((delay/100)|0)+((delay-((delay/100)|0)*100)>100?1:0)-1,t=[]
-	// 		for(let i=0;i<n;i++)
-	// 			t.push(0)
-	// 		data.arr.push(...t,1)
-	// 	}else {
-	// 		data.arr.push(1)
-	// 	}
-	// 	time=Date.now()
-	// }else {
-	// 	time=Date.now()
-	// 	console.log(data)
-	// 	data.arr.push(1)
-	// }
 	let value = pi.digitalRead(24)
-	// console.log(value)
 	if(!value){
 		time=Date.now()
 	}else {
@@ -46,12 +29,6 @@ pi.wiringPiISR(24,pi.INT_EDGE_BOTH,()=>{
 
 
 })
-
-// pi.wiringPiISR(24,pi.INT_EDGE_FALLING,e=>{
-//
-// })
-
-
 
 function dataCtrl(v) {
 	if(v==undefined) return
@@ -68,7 +45,10 @@ function dataCtrl(v) {
 	code=parseInt(arrs.join(''),2)
 	if(flag&&code===129){
 		console.log('exit!')
-		process.exit()
+		strData=[]
+		// process.exit()
 	}
-	console.log(code,String.fromCharCode(code))
+	// console.log(code,String.fromCharCode(code))
+	strData.push(String.fromCharCode(code))
+	process.stdout.write(strData.join(''))
 }

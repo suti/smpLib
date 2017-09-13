@@ -1,12 +1,9 @@
-console.log('初始化...')
 const pi=require('wiringpi-node')
 const readline = require('readline')
 
 pi.setup('gpio')
 
 pi.pinMode(23,pi.OUTPUT)
-
-
 
 const rl = readline.createInterface({
 	input: process.stdin,
@@ -27,15 +24,14 @@ function strs(v) {
 		for(let j=0;j<8;j++){
 			let value=arr[i]>>j&1
 			console.log(`[${i}][${j}]::${value}`)
-			pi.digitalWrite(23,value)
-			pi.delay(100)
+			if(value){
+				pi.digitalWrite(23,value)
+				pi.delay(50)
+				pi.digitalWrite(23,!value)
+				pi.delay(50)
+			}else {
+				pi.delay(100)
+			}
 		}
 	}
 }
-// 	while(true){
-// 		pi.digitalWrite(23,value)
-// 		value=+!value
-// 		pi.delay(100)
-// //	console.log(Date.now())
-// 	}
-

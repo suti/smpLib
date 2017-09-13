@@ -12,6 +12,8 @@ let time=null,data={arr:[]}
 
 define(data,'arr',dataCtrl)
 
+data.arr=[]
+
 setTimeout(()=>{
 	console.log('ok')
 },3000)

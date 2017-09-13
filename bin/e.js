@@ -26,8 +26,8 @@ function strs(v) {
 			items.unshift('0')
 		}
 		for(let j=0;j<8;j++){
-			let value=items[i]|0
-			console.log(value)
+			let value=items[j]|0
+			console.log(items[j])
 				// (arr[i]>>j)&1
 			console.log(`[${i}][${j}]::${value}`)
 			if(value){

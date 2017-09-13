@@ -45,7 +45,7 @@ function dataCtrl(v) {
 	code=parseInt(arrs.join(''),2)
 	if(flag&&code===129){
 		console.log('\r\n')
-		console.log('exit!')
+		console.log('>>>')
 		strData=[]
 		// process.exit()
 	}

@@ -6,7 +6,9 @@ pi.pinMode(24,pi.INPUT)
 
 let time=null,data={}
 
-data.arr=[]
+let {arr}=data
+arr=[]
+
 
 define(data,'arr',dataCtrl)
 
@@ -22,22 +24,22 @@ pi.wiringPiISR(24,pi.INT_EDGE_RISING,e=>{
 			let n=((delay/100)|0)+((delay-((delay/100)|0)*100)>50?1:0),t=[]
 			for(let i=0;i<n;i++)
 				t.push(0)
-			data.arr.push(...t,1)
+			arr.push(...t,1)
 		}else {
-			data.arr.push(1)
+			arr.push(1)
 		}
 		time=Date.now()
 	}else {
 		time=Date.now()
-		data.arr.push(1)
+		arr.push(1)
 	}
 })
 
 function dataCtrl(v) {
 	if(v.length!==8) return
-	let arr=v,code
-	v=[]
-	code=parseInt(arr.json(''),8)
+	let arrs=v,code
+	arr=[]
+	code=parseInt(arrs.json(''),8)
 	console.log(code,String.fromCharCode(code))
 }
 

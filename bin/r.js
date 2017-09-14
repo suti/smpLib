@@ -25,16 +25,16 @@ pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
 		}else {
 			data.push(0)
 		}
-		dataCtrl(data)
+		dataCtrl()
 	}
 
 
 })
 
-function dataCtrl(v) {
-	if(v==undefined) return
-	console.log(v,count)
-	if(v.length<8) return
+function dataCtrl() {
+	if(data==undefined) return
+	console.log(data,count)
+	if(data.length<8) return
 	let arrs=[],code
 	for(let i=0;i<8;i++){
 		arrs.push(data.shift())

@@ -26,7 +26,8 @@ let routers=[]
 
 routers.push(router.get('/start',(req,res)=> {
 	let {query} = req
-	console.log(query)
+	console.log('\r\n')
+	console.log(query.value)
 	strs(query.value)
 	res.send(query.value)
 	res.end()

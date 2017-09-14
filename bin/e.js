@@ -26,7 +26,7 @@ let routers=[]
 
 routers.push(router.post('/start',(req,res)=> {
 
-
+		console.log(req)
 
 		res.send('start')
 		res.end()

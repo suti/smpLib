@@ -23,7 +23,7 @@ pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
 		console.log('rising')
 	}else {
 		console.log(Date.now(),time,Date.now()-time)
-		if(Date.now()-time>30){
+		if(Date.now()-time>70){
 			data.push(1)
 			// console.log('p1')
 		}else {

@@ -22,13 +22,13 @@ pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
 		time=Date.now()
 		console.log('rising')
 	}else {
-		// console.log(Date.now(),time,Date.now()-time)
+		console.log(Date.now(),time,Date.now()-time)
 		if(Date.now()-time>20){
 			data.push(1)
-			console.log('p1')
+			// console.log('p1')
 		}else {
 			data.push(0)
-			console.log('p0')
+			// console.log('p0')
 		}
 		dataCtrl()
 	}

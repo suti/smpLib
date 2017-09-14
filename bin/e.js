@@ -26,7 +26,7 @@ let routers=[]
 
 routers.push(router.get('/start',(req,res)=> {
 
-		console.log(req.data)
+		console.log(req.query)
 
 		res.send('start')
 		res.end()

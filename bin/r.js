@@ -17,6 +17,7 @@ pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
 
 	// let value = pi.digitalRead(18)
 	// console.log(value)
+	console.log(!(count%2))
 	if(!(count%2)){
 		time=Date.now()
 	}else {

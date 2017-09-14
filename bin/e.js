@@ -1,5 +1,8 @@
 const pi=require('wiringpi-node')
 const readline = require('readline')
+const express = require('express')
+const router = express.Router()
+const app = express()
 
 pi.setup('phys')
 
@@ -19,6 +22,21 @@ function setInput() {
 	});
 }
 
+let routers=[]
+
+routers.push(router.post('/start',(req,res)=> {
+
+
+
+		res.send('start')
+		res.end()
+}))
+
+app.use('/',express.static('../html'))
+
+app.use('/api',routers)
+
+app.listen(233)
 
 function strs(v) {
 	let arr=[129]

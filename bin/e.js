@@ -31,10 +31,11 @@ function strs(v) {
 		for(let x=items.length;x<8;x++){
 			items.unshift('0')
 		}
+		process.stdout.write(`[${i}]::`)
 		for(let j=0;j<8;j++){
 			let value=items[j]|0
 				// (arr[i]>>j)&1
-			console.log(`[${i}][${j}]::${value}`)
+			process.stdout.write(`${value}`)
 			if(value){
 				pi.digitalWrite(16,1)
 				pi.delay(40)
@@ -45,6 +46,7 @@ function strs(v) {
 			pi.digitalWrite(16,0)
 			pi.delay(20)
 		}
+		console.log('\r\n')
 	}
 
 	setInput()

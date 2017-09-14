@@ -25,11 +25,11 @@ function setInput() {
 let routers=[]
 
 routers.push(router.get('/start',(req,res)=> {
-
-		console.log(req.query)
-
-		res.send('start')
-		res.end()
+	let {query} = req
+	strs(query.value)
+	res.send(query.value)
+	res.end()
+	setInput()
 }))
 
 app.use(express.static(__dirname+'/html'))

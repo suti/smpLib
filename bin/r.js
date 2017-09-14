@@ -20,12 +20,15 @@ pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
 	console.log((count%2))
 	if((count%2)){
 		time=Date.now()
+		console.log('rising')
 	}else {
-		console.log(Date.now(),time,Date.now()-time)
+		// console.log(Date.now(),time,Date.now()-time)
 		if(Date.now()-time>20){
 			data.push(1)
+			console.log(1)
 		}else {
 			data.push(0)
+			console.log(0)
 		}
 		dataCtrl()
 	}
@@ -35,7 +38,7 @@ pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
 
 function dataCtrl() {
 	if(data==undefined) return
-	console.log(data,count)
+	console.log(data)
 	if(data.length<8) return
 	let arrs=[],code
 	for(let i=0;i<8;i++){

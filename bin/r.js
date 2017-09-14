@@ -5,7 +5,7 @@ pi.setup('phys')
 pi.pinMode(18,pi.INPUT)
 
 let time=null,data={arr:[]}
-let flag=false,strData=[]
+let flag=false,strData=[],count=0
 
 setTimeout(()=>{
 	console.log('ok')
@@ -14,6 +14,7 @@ setTimeout(()=>{
 pi.pullUpDnControl(18,pi.PUD_DOWN)
 
 pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
+	count+=1
 	let value = pi.digitalRead(18)
 	if(!value){
 		time=Date.now()
@@ -32,7 +33,7 @@ pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
 
 function dataCtrl(v) {
 	if(v==undefined) return
-	console.log(v)
+	console.log(v,count)
 	if(v.length<8) return
 	let arrs=[],code
 	for(let i=0;i<8;i++){

@@ -17,7 +17,7 @@
     alert(value)
     let xhr = new XMLHttpRequest()
 
-    xhr.open('post','/start',true)
+    xhr.open('post','/api/start',true)
 	  xhr.onreadystatechange = function(){
 		  if (this.readyState === 4) {
 			  console.log(this.responseText)

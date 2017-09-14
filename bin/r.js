@@ -14,7 +14,7 @@ setTimeout(()=>{
 pi.pullUpDnControl(18,pi.PUD_DOWN)
 
 pi.wiringPiISR(18,pi.INT_EDGE_BOTH,e=>{
-	pi.delayMicroseconds(500)
+	// pi.delayMicroseconds(500)
 	let value = pi.digitalRead(18)
 	if(value){
 		time=Date.now()

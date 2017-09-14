@@ -12,9 +12,8 @@
 <script>
   document.querySelector('button').addEventListener('click',send)
 
-  function send(e) {
-    let value=e.target.value
-    alert(value)
+  function send() {
+    let value=document.querySelector('input').value
     let xhr = new XMLHttpRequest()
 
     xhr.open('post','/api/start',true)
@@ -24,7 +23,7 @@
 		  }
 	  }
 	  xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
-	  xhr.send('value='+value)
+	  xhr.send('value='+value+'&')
   }
 </script>
 </html>

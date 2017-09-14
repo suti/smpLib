@@ -19,7 +19,7 @@ pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
 		time=Date.now()
 	}else {
 		// console.log(Date.now(),time,Date.now()-time)
-		if(Date.now()-time>15){
+		if(Date.now()-time>50){
 			data.arr.push(1)
 		}else {
 			data.arr.push(0)

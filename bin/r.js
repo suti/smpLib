@@ -13,12 +13,13 @@ setTimeout(()=>{
 
 pi.pullUpDnControl(18,pi.PUD_DOWN)
 
-pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
+pi.wiringPiISR(18,pi.INT_EDGE_BOTH,e=>{
+	console.log(e)
 	let value = pi.digitalRead(18)
 	if(!value){
 		time=Date.now()
 	}else {
-		// console.log(Date.now(),time,Date.now()-time)
+		console.log(Date.now(),time,Date.now()-time)
 		if(Date.now()-time>4){
 			data.arr.push(1)
 		}else {

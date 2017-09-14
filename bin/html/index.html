@@ -15,6 +15,9 @@
   function send() {
     let value=document.querySelector('input').value
     let xhr = new XMLHttpRequest()
+    let formData = new FormData()
+
+	  formData.append('value',value)
 
     xhr.open('post','/api/start',true)
 	  xhr.onreadystatechange = function(){
@@ -23,7 +26,7 @@
 		  }
 	  }
 	  xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
-	  xhr.send('value='+value+'&')
+	  xhr.send(formData)
   }
 </script>
 </html>

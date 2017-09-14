@@ -38,7 +38,7 @@ function strs(v) {
 			process.stdout.write(`${value}`)
 			if(value){
 				pi.digitalWrite(16,1)
-				pi.delay(80)
+				pi.delay(60)
 			}else {
 				pi.digitalWrite(16,1)
 				pi.delay(20)

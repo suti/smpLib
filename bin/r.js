@@ -18,7 +18,7 @@ pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
 	if(!(count%2)){
 		time=Date.now()
 	}else {
-		if(Date.now()-time>50){
+		if(Date.now()-time>40){
 			data.push(1)
 		}else {
 			data.push(0)

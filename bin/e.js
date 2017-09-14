@@ -32,7 +32,7 @@ routers.push(router.post('/start',(req,res)=> {
 		res.end()
 }))
 
-app.use('/',express.static('../html'))
+app.use(express.static('../html'))
 
 app.use('/api',routers)
 

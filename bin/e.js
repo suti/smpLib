@@ -24,9 +24,9 @@ function setInput() {
 
 let routers=[]
 
-routers.push(router.post('/start',(req,res)=> {
+routers.push(router.get('/start',(req,res)=> {
 
-		console.log(req.body)
+		console.log(req.query)
 
 		res.send('start')
 		res.end()

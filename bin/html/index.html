@@ -19,14 +19,14 @@
 
 	  formData.append('value',value)
 
-    xhr.open('post','/api/start',true)
+    xhr.open('get','/api/start',true)
 	  xhr.onreadystatechange = function(){
 		  if (this.readyState === 4) {
 			  console.log(this.responseText)
 		  }
 	  }
-	  xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
-	  xhr.send(formData)
+//	  xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+	  xhr.send('value='+value+'&')
   }
 </script>
 </html>

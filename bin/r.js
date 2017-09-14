@@ -15,20 +15,13 @@ pi.pullUpDnControl(18,pi.PUD_DOWN)
 
 pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
 
-	// let value = pi.digitalRead(18)
-	// console.log(value)
-	// console.log(!(count%2))
 	if(!(count%2)){
 		time=Date.now()
-		// console.log('rising')
 	}else {
-		// console.log(Date.now(),time,Date.now()-time)
-		if(Date.now()-time>70){
+		if(Date.now()-time>50){
 			data.push(1)
-			// console.log('p1')
 		}else {
 			data.push(0)
-			// console.log('p0')
 		}
 		dataCtrl()
 	}

@@ -54,7 +54,6 @@ function dataCtrl(v) {
 		flag=false
 		// process.exit()
 	}
-	// console.log(code,String.fromCharCode(code))
 	strData.push(String.fromCharCode(code))
 	process.stdout.write(String.fromCharCode(code))
 }

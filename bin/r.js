@@ -5,7 +5,7 @@ pi.setup('phys')
 pi.pinMode(18,pi.INPUT)
 
 let time=null,data={arr:[]}
-let flag=false,strData=[]
+let flag=false,strData=[],test=[]
 
 setTimeout(()=>{
 	console.log('ok')
@@ -19,7 +19,7 @@ pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
 		time=Date.now()
 	}else {
 		// console.log(Date.now(),time,Date.now()-time)
-		if(Date.now()-time>5){
+		if(Date.now()-time>15){
 			data.arr.push(1)
 		}else {
 			data.arr.push(0)
@@ -38,6 +38,10 @@ function dataCtrl(v) {
 	for(let i=0;i<8;i++){
 		arrs.push(data.arr.shift())
 	}
+	// test.push(arrs)
+	// if(test.length>2){
+	// 	test.shift()
+	// }
 	if(!flag){
 		flag=true
 		return

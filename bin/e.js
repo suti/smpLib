@@ -38,13 +38,13 @@ function strs(v) {
 			process.stdout.write(`${value}`)
 			if(value){
 				pi.digitalWrite(16,1)
-				pi.delay(8)
+				pi.delay(20)
 			}else {
 				pi.digitalWrite(16,1)
-				pi.delay(2)
+				pi.delay(10)
 			}
 			pi.digitalWrite(16,0)
-			pi.delay(2)
+			pi.delay(10)
 		}
 		console.log('\r\n')
 	}

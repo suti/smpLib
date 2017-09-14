@@ -6,9 +6,12 @@
 </head>
 <body>
   hello
-  <input type="text" oninput="send">
+  <input type="text">
+  <button></button>
 </body>
 <script>
+  document.querySelector('button').addEventListener('click',send)
+
   function send(e) {
     let value=e.target.value
     alert(value)

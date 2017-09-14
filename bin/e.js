@@ -34,17 +34,17 @@ function strs(v) {
 		process.stdout.write(`[${i}]::`)
 		for(let j=0;j<8;j++){
 			let value=items[j]|0
-				// (arr[i]>>j)&1
+			// (arr[i]>>j)&1
 			process.stdout.write(`${value}`)
 			if(value){
 				pi.digitalWrite(16,1)
-				pi.delay(60)
+				pi.delay(6)
 			}else {
 				pi.digitalWrite(16,1)
-				pi.delay(40)
+				pi.delay(2)
 			}
 			pi.digitalWrite(16,0)
-			pi.delay(20)
+			pi.delay(2)
 		}
 		console.log('\r\n')
 	}

@@ -20,15 +20,15 @@ pi.wiringPiISR(18,pi.INT_EDGE_RISING,()=>{
 		console.log('rising',time)
 })
 
-pi.wiringPiISR(20,pi.INT_EDGE_FALLING,()=>{
-	console.log(Date.now(),Date.now()-time)
-	if(Date.now()-time>4){
-		data.arr.push(1)
-	}else {
-		data.arr.push(0)
-	}
-	dataCtrl(data.arr)
-})
+// pi.wiringPiISR(20,pi.INT_EDGE_FALLING,()=>{
+// 	console.log(Date.now(),Date.now()-time)
+// 	if(Date.now()-time>4){
+// 		data.arr.push(1)
+// 	}else {
+// 		data.arr.push(0)
+// 	}
+// 	dataCtrl(data.arr)
+// })
 
 function dataCtrl(v) {
 	if(v==undefined) return

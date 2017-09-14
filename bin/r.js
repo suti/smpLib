@@ -32,7 +32,7 @@ pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
 
 function dataCtrl(v) {
 	if(v==undefined) return
-	// console.log(v)
+	console.log(v)
 	if(v.length<8) return
 	let arrs=[],code
 	for(let i=0;i<8;i++){

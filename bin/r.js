@@ -17,18 +17,18 @@ pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
 
 	// let value = pi.digitalRead(18)
 	// console.log(value)
-	console.log((count%2))
-	if((count%2)){
+	console.log(!!(count%2))
+	if(!!(count%2)){
 		time=Date.now()
 		console.log('rising')
 	}else {
 		// console.log(Date.now(),time,Date.now()-time)
 		if(Date.now()-time>20){
 			data.push(1)
-			console.log(1)
+			console.log('p1')
 		}else {
 			data.push(0)
-			console.log(0)
+			console.log('p0')
 		}
 		dataCtrl()
 	}

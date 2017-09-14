@@ -15,9 +15,9 @@
   function send() {
     let value=document.querySelector('input').value
     let xhr = new XMLHttpRequest()
-    let formData = new FormData()
+//    let formData = new FormData()
 
-	  formData.append('value',value)
+//	  formData.append('value',value)
 
     xhr.open('get','/api/start',true)
 	  xhr.onreadystatechange = function(){

@@ -3,7 +3,6 @@ const pi=require('wiringpi-node')
 pi.setup('phys')
 
 pi.pinMode(18,pi.INPUT)
-pi.pinMode(20,pi.INPUT)
 
 let time=null,data={arr:[]}
 let flag=false,strData=[]
@@ -13,22 +12,23 @@ setTimeout(()=>{
 },0)
 
 pi.pullUpDnControl(18,pi.PUD_DOWN)
-pi.pullUpDnControl(20,pi.PUD_DOWN)
 
-pi.wiringPiISR(18,pi.INT_EDGE_RISING,()=>{
+pi.wiringPiISR(18,pi.INT_EDGE_BOTH,()=>{
+	let value = pi.digitalRead(18)
+	if(!value){
 		time=Date.now()
-		console.log('rising',time)
-})
+	}else {
+		// console.log(Date.now(),time,Date.now()-time)
+		if(Date.now()-time>4){
+			data.arr.push(1)
+		}else {
+			data.arr.push(0)
+		}
+		dataCtrl(data.arr)
+	}
 
-// pi.wiringPiISR(20,pi.INT_EDGE_FALLING,()=>{
-// 	console.log(Date.now(),Date.now()-time)
-// 	if(Date.now()-time>4){
-// 		data.arr.push(1)
-// 	}else {
-// 		data.arr.push(0)
-// 	}
-// 	dataCtrl(data.arr)
-// })
+
+})
 
 function dataCtrl(v) {
 	if(v==undefined) return

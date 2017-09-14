@@ -18,8 +18,9 @@ pi.wiringPiISR(18,pi.INT_EDGE_BOTH,e=>{
 	let value = pi.digitalRead(18)
 	if(value){
 		time=Date.now()
+		console.log('rising',time)
 	}else {
-		console.log(Date.now(),time,Date.now()-time)
+		console.log(Date.now(),Date.now()-time)
 		if(Date.now()-time>4){
 			data.arr.push(1)
 		}else {
